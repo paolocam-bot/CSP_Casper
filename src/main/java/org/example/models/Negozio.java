@@ -1,20 +1,21 @@
 package org.example.models;
 
 import lombok.*;
+import java.time.YearMonth;
+import java.util.HashMap;
+import java.util.Map;
 
-import java.util.List;
-
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Negozio {
-    // Se il database genera l'ID, usiamo Integer (può essere null)
-    private Integer id;
+    private Integer id; // Gestito dal Database (null prima del salvataggio)
     private String nome;
     private String sigla;
-    private List<Dipendente> dipendeti;
 
-    // Inizializziamo subito la matrice
-    private boolean[][] orariApertura = new boolean[7][48];
+    // Mappa che collega ogni mese (es. "2026-06") alla sua pianificazione specifica
+    @Builder.Default
+    private Map<YearMonth, PianificazioneMensile> storicoPianificazioni = new HashMap<>();
 }

@@ -16,6 +16,7 @@ public class Dipendente {
     // Usa LocalDate (Java 8+) invece di Date (che è obsoleto)
     private LocalDate dataNascita;
     private String negozioAssunto;
+    private TipoContratto contratto;
 
     // Sostituiamo 'strike' con un nome più chiaro e più versatile
     // Se vuoi davvero solo un booleano:
@@ -23,4 +24,7 @@ public class Dipendente {
 
     // CONSIGLIO: Se volessi in futuro graduare la performance:
     // private int livelloVendita; // es da 1 a 10
+    public int getOreMassimeSettimanali() {
+        return this.contratto.getOreSettimanali();
+    }
 }
